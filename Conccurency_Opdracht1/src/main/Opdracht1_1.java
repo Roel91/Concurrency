@@ -1,7 +1,5 @@
 package main;
 
-import java.util.ArrayList;
-
 public class Opdracht1_1 {
 	public static void main(String[] args) {
 
@@ -19,7 +17,6 @@ public class Opdracht1_1 {
 		RandomListGenerator rg = new RandomListGenerator();
 		int[] integers = rg.randomList(n);
 
-		ArrayList<Long> resultaten = new ArrayList<>();
 		ListSorter sorter = new ListSorter();
 		long total = 0, smallest = Long.MAX_VALUE, largest = 0;
 		for (int x = 0; x < 12; x++) {
@@ -39,9 +36,8 @@ public class Opdracht1_1 {
 			
 			System.out.print(duration + " ms, ");
 		}
-		
 		System.out.println();
-		System.out.println("gemiddeld " + (total - largest - smallest  / 10) + " ms (kleinste en grootste verschil niet meegerekend)");
+		System.out.println("gemiddeld " + ((total - largest - smallest)  / 10) + " ms (kleinste en grootste niet meegerekend)");
 		System.out.println("-------------------------------------------------------------------------");
 	}
 }
