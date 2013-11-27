@@ -1,4 +1,4 @@
-package main;
+package opdracht1_2;
 
 import java.util.ArrayList;
 /**
@@ -11,15 +11,15 @@ public class ListSorter {
 	 * @param integers
 	 * @return ArrayList<Integer> sorted
 	 */
-	public ArrayList<Integer> insertionSort(int[] integers) {
+	public void insertionSort(int[] integers) {
 		ArrayList<Integer> list = new ArrayList<>();
-		
 		/*Loops trough all integers in the array.*/
 		for(int index = 0; index < integers.length; index++) {
 			
 			/*The first Integer is added to the list.*/
 			if(list.isEmpty()) {
 				list.add(integers[index]);
+				
 			}
 			
 			/*The list remains sorted if the the Integer is larger then its neighbor.*/
@@ -37,7 +37,8 @@ public class ListSorter {
 				}	
 				list.add(index-n, integers[index]);
 			}
+			
 		}
-		return list;
+		System.out.println(list);
 	}
 }
