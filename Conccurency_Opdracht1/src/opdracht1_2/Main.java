@@ -33,6 +33,32 @@ public class Main {
 			Thread thread2 = new Thread(new MyThread(part2));
 				thread1.start(); 
 				thread2.start();
+			//mergen..	
 		}
+	}
+	
+	public static int[] merge(int[] part1, int[] part2) {
+
+	    int[] answer = new int[part1.length + part2.length];
+	    int a = 0;
+	    int b = 0;
+	    int c = 0;
+
+	    while (a < part1.length && b < part2.length) {
+	        if (part1[a] < part2[b]) {      
+	            answer[c++] = part1[a++];
+	        } else {
+	        	answer[c++] = part2[b++];  
+	        }              
+	    }
+
+	    while (a < part1.length) { 
+	        answer[c++] = part1[a++];
+	    }    
+
+	    while (b < part2.length) {   
+	        answer[c++] = part2[b++];
+	    }    
+	    return answer;
 	}
 }

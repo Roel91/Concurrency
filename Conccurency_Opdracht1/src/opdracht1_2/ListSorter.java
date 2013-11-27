@@ -1,6 +1,7 @@
 package opdracht1_2;
 
 import java.util.ArrayList;
+import java.util.List;
 /**
  * Class for sorting unsorted lists.
  */
@@ -40,5 +41,15 @@ public class ListSorter {
 			
 		}
 		System.out.println(list);
+		MyThread.setSortedIntegers(buildIntArray(list));
+	}
+	
+	private int[] buildIntArray(List<Integer> integers) {
+	    int[] ints = new int[integers.size()];
+	    int i = 0;
+	    for (Integer n : integers) {
+	        ints[i++] = n;
+	    }
+	    return ints;
 	}
 }
