@@ -28,12 +28,26 @@ public class Main {
 		
 		for (int x = 0; x < 10; x++) {
 			
-			
+			long startTime = System.currentTimeMillis();
 			Thread thread1 = new Thread(new MyThread(part1));			
 			Thread thread2 = new Thread(new MyThread(part2));
 				thread1.start(); 
 				thread2.start();
-			//mergen..	
+				try {
+					thread1.join();
+					thread2.join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			int[] mergeint = merge(part1, part2);	
+			
+			for (int i = 0; i<mergeint.length; i++) {
+				System.out.print("["+ mergeint[i] + "], ");
+			}
+			long endTime = System.currentTimeMillis();
+			System.out.println((endTime - startTime) + " ms,");
+			System.out.println("-------------------------------------------------------------");
 		}
 	}
 	

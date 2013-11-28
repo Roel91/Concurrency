@@ -1,7 +1,5 @@
 package opdracht1_2;
 
-import java.util.ArrayList;
-import java.util.List;
 /**
  * Class for sorting unsorted lists.
  */
@@ -13,43 +11,16 @@ public class ListSorter {
 	 * @return ArrayList<Integer> sorted
 	 */
 	public void insertionSort(int[] integers) {
-		ArrayList<Integer> list = new ArrayList<>();
-		/*Loops trough all integers in the array.*/
-		for(int index = 0; index < integers.length; index++) {
+		for (int i = 1; i < integers.length; i++) {
+			int j = i;
+			int temp = integers[i];
 			
-			/*The first Integer is added to the list.*/
-			if(list.isEmpty()) {
-				list.add(integers[index]);
-				
+			while ((j > 0) && (integers[j-1] > temp)){
+				integers[j] = integers[j-1];
+				j--;
 			}
-			
-			/*The list remains sorted if the the Integer is larger then its neighbor.*/
-			else if(integers[index] >= list.get(index-1)) {
-				list.add(integers[index]);
-			}
-			
-			/*If it's smaller then its neighbor it will have to go n more neighbors back
-			 * until that neighbor is smaller*/
-			else {
-				int n = 0;
-				while(integers[index] < list.get(index-1-n)) {
-					n++;
-					if(index-1-n < 0) break;
-				}	
-				list.add(index-n, integers[index]);
-			}
-			
+			integers[j] = temp;
 		}
-		System.out.println(list);
-		MyThread.setSortedIntegers(buildIntArray(list));
 	}
 	
-	private int[] buildIntArray(List<Integer> integers) {
-	    int[] ints = new int[integers.size()];
-	    int i = 0;
-	    for (Integer n : integers) {
-	        ints[i++] = n;
-	    }
-	    return ints;
-	}
 }

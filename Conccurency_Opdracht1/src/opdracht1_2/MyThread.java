@@ -10,12 +10,9 @@ public class MyThread implements Runnable {
 
 	@Override
 	public void run() {
-		long startTime = System.currentTimeMillis();
 		ListSorter sorter = new ListSorter();
 
 		sorter.insertionSort(integers);
-		long endTime = System.currentTimeMillis();
-		System.out.println(endTime - startTime + " ms, ");
 	}
 
 	public int[] getSortedIntegers() {
