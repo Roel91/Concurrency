@@ -20,16 +20,16 @@ public class Main {
 		
 		//random list maken
 		RandomListGenerator rg = new RandomListGenerator();
-		int[] integers = rg.randomList(n);
-
-		ListSorter sorter = new ListSorter();
+	
 		long total = 0;
 		long smallest = Long.MAX_VALUE;
 		long largest = 0;
 		
-		for (int x = 0; x < 10; x++) {
+		for (int x = 0; x < 12; x++) {
 			long startTime = System.currentTimeMillis();
+			int[] integers = rg.randomList(n);
 
+			ListSorter sorter = new ListSorter();
 			sorter.insertionSort(integers);
 			
 			long duration = System.currentTimeMillis() - startTime;
@@ -41,7 +41,6 @@ public class Main {
 			else if(duration < smallest) {
 				smallest = duration;
 			}
-			
 			System.out.print(duration + " ms, ");
 		}
 		System.out.println();

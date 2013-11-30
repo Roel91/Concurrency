@@ -21,7 +21,7 @@ public class ThreadTree {
 			part1 = left.build(part1);
 			
 			right = new ThreadTree();
-			part2 =right.build(part2);
+			part2 = right.build(part2);
 			
 			integers = merge(part1, part2);
 		}

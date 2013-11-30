@@ -1,5 +1,7 @@
 package opdracht1_3;
 
+import opdracht1_3.RandomListGenerator;
+
 public class Main {
 	public static void main(String[] args) {
 
@@ -15,24 +17,34 @@ public class Main {
 	private void execute(int nGetallen) {
 		System.out.println("Meetresultaten voor een lijst met de grootte: " + nGetallen);
 		
+		//random list maken
+		RandomListGenerator rg = new RandomListGenerator();
+	
 		long total = 0;
+		long smallest = Long.MAX_VALUE;
+		long largest = 0;
 		
-		for(int x = 0; x < 10; x++){
+		for (int x = 0; x < 12; x++) {
 			long startTime = System.currentTimeMillis();
-			RandomListGenerator rg = new RandomListGenerator();
-			int[] integers = rg.randomList(nGetallen);
-			
+
+			int[] integers = rg.randomList(nGetallen);	
 			ThreadTree tree = new ThreadTree();
 			tree.build(integers);
 			
-			long endTime = System.currentTimeMillis();
-			long duration = endTime - startTime;
-			total = total + duration;
-			System.out.print(duration + " ms, ");
 			
+			long duration = System.currentTimeMillis() - startTime;
+
+			total = total + duration;
+			if(duration > largest) {
+				largest = duration;
+			}
+			else if(duration < smallest) {
+				smallest = duration;
+			}
+			System.out.print(duration + " ms, ");
 		}
 		System.out.println();
-		System.out.println("Gemiddeld: " + (total/10) + " ms");
-		System.out.println("-------------------------------------------------------------");
+		System.out.println("gemiddeld " + ((total - largest - smallest)  / 10) + " ms (kleinste en grootste niet meegerekend)");
+		System.out.println("-------------------------------------------------------------------------");
 	}
 }

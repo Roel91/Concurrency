@@ -6,27 +6,31 @@ public class Main {
 
 		Main op = new Main();
 		op.execute(10);
-//		op.execute(50000);
-//		op.execute(100000);
-//		op.execute(200000);
-//		op.execute(400000);
-//		op.execute(800000);
+		op.execute(50000);
+		op.execute(100000);
+		op.execute(200000);
+		op.execute(400000);
+		op.execute(800000);
 	}
 
 	private void execute(int n) {
 		System.out.println("Meetresultaten voor " + n + ":");
 
+		long total = 0;
+		long smallest = Long.MAX_VALUE;
+		long largest = 0;
+		
 		//random list maken
 		RandomListGenerator rg = new RandomListGenerator();
-		int[] integers = rg.randomList(n);
+	
+		for (int x = 0; x < 12; x++) {
+			int[] integers = rg.randomList(n);
 
-		int[] part1 = new int[n/2];
-		int[] part2 = new int[n/2];
-
-		System.arraycopy(integers, 0, part1, 0, part1.length);
-		System.arraycopy(integers, part1.length, part2, 0, part2.length);
-		
-		for (int x = 0; x < 10; x++) {
+			int[] part1 = new int[n/2];
+			int[] part2 = new int[n/2];
+			
+			System.arraycopy(integers, 0, part1, 0, part1.length);
+			System.arraycopy(integers, part1.length, part2, 0, part2.length);
 			
 			long startTime = System.currentTimeMillis();
 			Thread thread1 = new Thread(new MyThread(part1));			
@@ -40,15 +44,22 @@ public class Main {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			int[] mergeint = merge(part1, part2);	
+			merge(part1, part2);	
 			
-			for (int i = 0; i<mergeint.length; i++) {
-				System.out.print("["+ mergeint[i] + "], ");
+			long duration = System.currentTimeMillis() - startTime;
+
+			total = total + duration;
+			if(duration > largest) {
+				largest = duration;
 			}
-			long endTime = System.currentTimeMillis();
-			System.out.println((endTime - startTime) + " ms,");
-			System.out.println("-------------------------------------------------------------");
+			else if(duration < smallest) {
+				smallest = duration;
+			}
+			System.out.print(duration + " ms, ");
 		}
+		System.out.println();
+		System.out.println("gemiddeld " + ((total - largest - smallest)  / 10) + " ms (kleinste en grootste niet meegerekend)");
+		System.out.println("-------------------------------------------------------------------------");
 	}
 	
 	public static int[] merge(int[] part1, int[] part2) {

@@ -18,8 +18,7 @@ public class ListSorter {
 			
 			/*The first Integer is added to the list.*/
 			if(list.isEmpty()) {
-				list.add(integers[index]);
-				
+				list.add(integers[index]);	
 			}
 			
 			/*The list remains sorted if the the Integer is larger then its neighbor.*/
