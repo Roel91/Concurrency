@@ -5,18 +5,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		Main op = new Main();
-//		op.execute(25000);
+		op.execute(25000);
 		op.execute(50000);
-//		op.execute(100000);
-//		op.execute(200000);
-//		op.execute(400000);
-//		op.execute(800000);
+		op.execute(100000);
+		op.execute(200000);
+		op.execute(400000);
+		op.execute(800000);
 	}
 
 	private void execute(int n) {
 		System.out.println("Meetresultaten voor " + n + ":");
-		
-		
 		
 		//random list maken
 		RandomListGenerator rg = new RandomListGenerator();
