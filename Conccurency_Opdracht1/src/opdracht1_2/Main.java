@@ -1,7 +1,16 @@
 package opdracht1_2;
 
 
+/**
+ * 
+ * Class voor het uitvoeren van de tests waarin de benodigde tijd wordt berekend.
+ *
+ */
 public class Main {
+	/**
+	 * Deze methode voert de verschillend test uit.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Main op = new Main();
@@ -33,8 +42,8 @@ public class Main {
 			System.arraycopy(integers, part1.length, part2, 0, part2.length);
 			
 			long startTime = System.currentTimeMillis();
-			Thread thread1 = new Thread(new MyThread(part1));			
-			Thread thread2 = new Thread(new MyThread(part2));
+			Thread thread1 = new Thread(new MyRunnable(part1));			
+			Thread thread2 = new Thread(new MyRunnable(part2));
 				thread1.start(); 
 				thread2.start();
 				try {
@@ -62,6 +71,12 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------");
 	}
 	
+	/**
+	 * Methode voor het mergen van 2 gesorteerde lijsten
+	 * @param part1
+	 * @param part2
+	 * @return
+	 */
 	public static int[] merge(int[] part1, int[] part2) {
 
 	    int[] answer = new int[part1.length + part2.length];

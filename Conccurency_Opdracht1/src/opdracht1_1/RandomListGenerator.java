@@ -1,7 +1,11 @@
 package opdracht1_1;
 import java.util.Random;
 
-
+/**
+ * 
+ * Class voor het maken van een willekeurige lijst
+ *
+ */
 public class RandomListGenerator {
 
 	/**

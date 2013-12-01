@@ -1,10 +1,14 @@
 package opdracht1_2;
-
-public class MyThread implements Runnable {
+/**
+ * 
+ * Runnable voor het uitvoeren van een Listsorter object.
+ *
+ */
+public class MyRunnable implements Runnable {
 	private int[] integers;
 	private static int[] sortedIntegers;
 	
-	public MyThread(int[] integers) {
+	public MyRunnable(int[] integers) {
 		this.integers = integers;
 	}
 
@@ -20,7 +24,7 @@ public class MyThread implements Runnable {
 	}
 
 	public static void setSortedIntegers(int[] list) {
-		MyThread.sortedIntegers = list;
+		MyRunnable.sortedIntegers = list;
 	}
 	
 	

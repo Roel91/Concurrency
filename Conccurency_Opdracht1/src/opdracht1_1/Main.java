@@ -1,7 +1,15 @@
 package opdracht1_1;
 
-
+/**
+ * 
+ * Class voor het uitvoeren van de tests waarin de benodigde tijd wordt berekend.
+ *
+ */
 public class Main {
+	/**
+	 * Deze methode voert de verschillend test uit.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Main op = new Main();

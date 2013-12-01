@@ -1,5 +1,10 @@
 package opdracht1_3;
 
+/**
+ * 
+ * Runnable voor het uitvoeren van een Listsorter object.
+ *
+ */
 public class MyRunnable implements Runnable {
 	private int[] integers;
 	private static int[] sortedIntegers;

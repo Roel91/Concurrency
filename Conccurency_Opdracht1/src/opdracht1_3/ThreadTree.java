@@ -1,5 +1,10 @@
 package opdracht1_3;
-
+/**
+ * 
+ * Class voor het aanmaken van threads in een boom structuur,
+ * waarbij de leafs als eerste uitgevoerd worden en daarna de parents daarvan.
+ *
+ */
 public class ThreadTree {
 
 	private ThreadTree left, right;
@@ -39,6 +44,12 @@ public class ThreadTree {
 		return integers;		
 	}
 
+	/**
+	 * Methode voor het mergen van 2 gesorteerde lijsten
+	 * @param part1
+	 * @param part2
+	 * @return
+	 */
 	private int[] merge(int[] part1, int[] part2) {
 	    int[] answer = new int[part1.length + part2.length];
 	    int a = 0;

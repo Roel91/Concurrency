@@ -1,12 +1,12 @@
 package opdracht1_1;
 
 /**
- * Class for sorting unsorted lists.
+ * Class voor het sorteren van een ongesorteerde lijst
  */
 public class ListSorter {
 
 	/**
-	 * This method returns a sorted ArrayList of integers by sorting the list with the Insertion Sort principle.
+	 * Deze methode stuurt een gesorteerde ArrayList terug volgens het Insertion Sort principe.
 	 * @param integers
 	 * @return ArrayList<Integer> sorted
 	 */
