@@ -16,8 +16,6 @@ public class Main {
 	private void execute(int n) {
 		System.out.println("Meetresultaten voor " + n + ":");
 		
-		
-		
 		//random list maken
 		RandomListGenerator rg = new RandomListGenerator();
 	
