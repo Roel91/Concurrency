@@ -6,12 +6,14 @@ public class Main {
 	public static void main(String[] args) {
 
 		Main op = new Main();
-		op.execute(100);
+		op.execute(25000);
 		op.execute(50000);
 		op.execute(100000);
 		op.execute(200000);
 		op.execute(400000);
 		op.execute(800000);
+		op.execute(1600000);
+		op.execute(3200000);
 	}
 
 	private void execute(int nGetallen) {
@@ -45,6 +47,6 @@ public class Main {
 		}
 		System.out.println();
 		System.out.println("gemiddeld " + ((total - largest - smallest)  / 10) + " ms (kleinste en grootste niet meegerekend)");
-		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("--------------------------------------------------------------------------------");
 	}
 }

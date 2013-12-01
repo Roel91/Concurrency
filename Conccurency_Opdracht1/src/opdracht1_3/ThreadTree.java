@@ -7,7 +7,7 @@ public class ThreadTree {
 	private Thread thread;
 	
 	public int[] build(int[] integers) {
-		if(integers.length > 10000) {
+		if(integers.length > 1000) {
 			
 			int splitPoint = (integers.length / 2);
 			
